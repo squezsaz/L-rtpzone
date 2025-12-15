@@ -1,0 +1,50 @@
+# Turkish Language File for L-rtpzone Plugin
+
+# General Messages
+message.prefix: '&8[&aL-RTP&8]'
+
+# Zone Entry/Exit Messages
+message.zone.enter: '&aBir ışınlanma bölgesine girdiniz'
+message.zone.exit: '&cIşınlanma bölgesinden çıktınız'
+
+# Command Messages
+message.command.only_player: '&cBu komutu sadece oyuncular kullanabilir!'
+message.command.usage.create: '&cKullanım: /mtz create <isim>'
+message.command.usage.remove: '&cKullanım: /mtz remove <isim>'
+message.command.zone.exists: '&cBu isimde bir bölge zaten var!'
+message.command.zone.not_exists: '&cBu isimde bir bölge bulunmuyor!'
+message.command.zone.created: '&aIşınlanma bölgesi ''&f{name}&a'' oluşturuldu!'
+message.command.zone.removed: '&aIşınlanma bölgesi ''&f{name}&a'' silindi!'
+message.command.no_zones: '&eHenüz hiç ışınlanma bölgesi oluşturulmamış.'
+message.command.position.set1: '&aKonum 1 ayarlandı! Şimdi konum 2''yi ayarlayın.'
+message.command.position.set2: '&aKonum 2 ayarlandı! Bu konumlarla bir bölge oluşturabilirsiniz.'
+message.command.position.select1: '&aBlok''a sol tıklayarak bölge için konum 1''i ayarlayın.'
+message.command.position.select2: '&aBlok''a sol tıklayarak bölge için konum 2''yi ayarlayın.'
+message.command.missing_positions: '&cBir bölge oluşturmadan önce hem konum 1 hem de konum 2''yi ayarlamalısınız!'
+message.command.missing_positions_help: '&cKonumları ayarlamak için /mtz pos1 ve /mtz pos2 komutlarını kullanın.'
+
+# Teleportation Messages
+message.teleport.safe_location: '&aGüvenli bir konuma ışınlandınız!'
+message.teleport.title: '&cSAVAŞ!'
+
+# Help Messages
+message.help.header: '&8=== &aL-rtpzone Komutları &8==='
+message.help.create: '&e/mtz create <isim> &7- Yeni bir ışınlanma bölgesi oluşturur'
+message.help.remove: '&e/mtz remove <isim> &7- Mevcut bir ışınlanma bölgesini siler'
+message.help.list: '&e/mtz list &7- Tüm ışınlanma bölgelerini listeler'
+message.help.pos1: '&e/mtz pos1 &7- Bölge seçimi için konum 1''i ayarlar'
+message.help.pos2: '&e/mtz pos2 &7- Bölge seçimi için konum 2''yi ayarlar'
+message.help.info: '&e/mtz info &7- Tüm bölge bilgilerini gösterir (Yönetici)'
+message.help.reload: '&e/mtz reload &7- Eklenti yapılandırmasını ve dil dosyalarını yeniden yükler (Yönetici)'
+
+# Info Command Messages
+message.info.header: '&8=== &aBölge Bilgileri &8==='
+message.info.zone: '&eBölge: &f{name}'
+message.info.position1: '&7  Konum 1: &f{x}, {y}, {z} ({world})'
+message.info.position2: '&7  Konum 2: &f{x}, {y}, {z} ({world})'
+message.info.center: '&7  Merkez: &f{x}, {y}, {z} ({world})'
+message.info.players: '&7  Bölgedeki oyuncular: &f{count}'
+message.info.countdown: '&7  Sonraki ışınlanmaya: &f{seconds} &7saniye'
+
+# Error Messages
+message.error.invalid_command: '&cGeçersiz komut! Yardım için /mtz yazın.'

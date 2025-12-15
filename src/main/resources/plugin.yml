@@ -1,0 +1,12 @@
+name: L-rtpzone
+version: 1.0.0
+main: com.mass.teleport.zone.Main
+api-version: 1.21
+author: YourName
+description: A plugin that creates mass teleportation zones where players are teleported to random locations periodically.
+softdepend: [PlaceholderAPI]
+commands:
+  mtz:
+    description: Manage mass teleportation zones
+    usage: /mtz [create|remove|list|reload]
+    permission: l-rtpzone.admin

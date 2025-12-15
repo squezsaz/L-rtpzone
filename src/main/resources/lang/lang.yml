@@ -1,0 +1,50 @@
+# English Language File for L-rtpzone Plugin
+
+# General Messages
+message.prefix: '&8[&aL-RTP&8]'
+
+# Zone Entry/Exit Messages
+message.zone.enter: '&aYou have entered a teleport zone'
+message.zone.exit: '&cYou have left the teleport zone'
+
+# Command Messages
+message.command.only_player: '&cOnly players can use this command!'
+message.command.usage.create: '&cUsage: /mtz create <name>'
+message.command.usage.remove: '&cUsage: /mtz remove <name>'
+message.command.zone.exists: '&cA zone with that name already exists!'
+message.command.zone.not_exists: '&cNo zone with that name exists!'
+message.command.zone.created: '&aCreated teleport zone ''&f{name}&a''!'
+message.command.zone.removed: '&aRemoved teleport zone ''&f{name}&a''!'
+message.command.no_zones: '&eNo teleport zones created yet.'
+message.command.position.set1: '&aPosition 1 set! Now set position 2.'
+message.command.position.set2: '&aPosition 2 set! You can now create a zone with these positions.'
+message.command.position.select1: '&aLeft click a block to set position 1 for the zone.'
+message.command.position.select2: '&aLeft click a block to set position 2 for the zone.'
+message.command.missing_positions: '&cYou must set both pos1 and pos2 before creating a zone!'
+message.command.missing_positions_help: '&cUse /mtz pos1 and /mtz pos2 to set the positions.'
+
+# Teleportation Messages
+message.teleport.safe_location: '&aYou have been teleported to a safe location!'
+message.teleport.title: '&cSAVAŞ!'
+
+# Help Messages
+message.help.header: '&8=== &aL-rtpzone Commands &8==='
+message.help.create: '&e/mtz create <name> &7- Create a new teleport zone'
+message.help.remove: '&e/mtz remove <name> &7- Remove an existing teleport zone'
+message.help.list: '&e/mtz list &7- List all teleport zones'
+message.help.pos1: '&e/mtz pos1 &7- Set position 1 for zone selection'
+message.help.pos2: '&e/mtz pos2 &7- Set position 2 for zone selection'
+message.help.info: '&e/mtz info &7- View detailed zone information (Admin only)'
+message.help.reload: '&e/mtz reload &7- Reload plugin configuration and language files (Admin only)'
+
+# Info Command Messages
+message.info.header: '&8=== &aZone Information &8==='
+message.info.zone: '&eZone: &f{name}'
+message.info.position1: '&7  Position 1: &f{x}, {y}, {z} ({world})'
+message.info.position2: '&7  Position 2: &f{x}, {y}, {z} ({world})'
+message.info.center: '&7  Center: &f{x}, {y}, {z} ({world})'
+message.info.players: '&7  Players in zone: &f{count}'
+message.info.countdown: '&7  Time until next teleport: &f{seconds} &7seconds'
+
+# Error Messages
+message.error.invalid_command: '&cInvalid command! Type /mtz for help.'
