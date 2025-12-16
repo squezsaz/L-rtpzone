@@ -12,6 +12,8 @@ A Minecraft Spigot plugin that allows administrators to create mass teleportatio
 - PlaceholderAPI support for customizing messages
 - Easy zone management with intuitive commands
 - Admins can view detailed zone information including player counts and teleport timers
+- Configuration and language files can be reloaded without restarting the server
+- **NEW:** Clickable zone names in info command for easy admin teleportation
 
 ## Commands
 
@@ -21,6 +23,8 @@ A Minecraft Spigot plugin that allows administrators to create mass teleportatio
 - `/mtz pos1` - Set the first corner of a zone selection
 - `/mtz pos2` - Set the second corner of a zone selection
 - `/mtz info` - View detailed information about all zones (Admin only)
+- `/mtz teleport <zone>` - Teleport to a zone (Admin only)
+- `/mtz reload` - Reload plugin configuration and language files (Admin only)
 
 ## Permissions
 
@@ -77,6 +81,19 @@ The plugin supports multiple languages. You can change the language by modifying
 - `tr` - Turkish
 
 Language files are located in the `lang` folder and can be customized as needed.
+
+## Reloading Configuration
+
+To reload the plugin configuration and language files without restarting the server, use the command:
+```
+/mtz reload
+```
+
+This command requires the `l-rtpzone.admin` permission.
+
+## New Feature: Clickable Zone Names
+
+In the `/mtz info` command output, zone names are now clickable. When you click on a zone name, it will automatically teleport you to that zone's center. This makes it much easier for admins to navigate between zones.
 
 ## Building from Source
 
