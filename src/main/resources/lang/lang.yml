@@ -9,6 +9,7 @@ message.zone.exit: '&cYou have left the teleport zone'
 
 # Command Messages
 message.command.only_player: '&cOnly players can use this command!'
+message.command.no_permission: '&cYou don''t have permission to use this command!'
 message.command.usage.create: '&cUsage: /mtz create <name>'
 message.command.usage.remove: '&cUsage: /mtz remove <name>'
 message.command.zone.exists: '&cA zone with that name already exists!'
@@ -26,6 +27,7 @@ message.command.missing_positions_help: '&cUse /mtz pos1 and /mtz pos2 to set th
 # Teleportation Messages
 message.teleport.safe_location: '&aYou have been teleported to a safe location!'
 message.teleport.title: '&cSAVAŞ!'
+message.teleport.to_zone: '&aYou have been teleported to zone ''&f{name}&a''!'
 
 # Help Messages
 message.help.header: '&8=== &aL-rtpzone Commands &8==='
@@ -35,6 +37,7 @@ message.help.list: '&e/mtz list &7- List all teleport zones'
 message.help.pos1: '&e/mtz pos1 &7- Set position 1 for zone selection'
 message.help.pos2: '&e/mtz pos2 &7- Set position 2 for zone selection'
 message.help.info: '&e/mtz info &7- View detailed zone information (Admin only)'
+message.help.teleport: '&e/mtz teleport <zone> &7- Teleport to a zone (Admin only)'
 message.help.reload: '&e/mtz reload &7- Reload plugin configuration and language files (Admin only)'
 
 # Info Command Messages

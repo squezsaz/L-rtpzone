@@ -9,6 +9,7 @@ message.zone.exit: '&cIşınlanma bölgesinden çıktınız'
 
 # Command Messages
 message.command.only_player: '&cBu komutu sadece oyuncular kullanabilir!'
+message.command.no_permission: '&cBu komutu kullanma izniniz yok!'
 message.command.usage.create: '&cKullanım: /mtz create <isim>'
 message.command.usage.remove: '&cKullanım: /mtz remove <isim>'
 message.command.zone.exists: '&cBu isimde bir bölge zaten var!'
@@ -26,6 +27,7 @@ message.command.missing_positions_help: '&cKonumları ayarlamak için /mtz pos1 
 # Teleportation Messages
 message.teleport.safe_location: '&aGüvenli bir konuma ışınlandınız!'
 message.teleport.title: '&cSAVAŞ!'
+message.teleport.to_zone: '&a''&f{name}&a'' bölgesine ışınlandınız!'
 
 # Help Messages
 message.help.header: '&8=== &aL-rtpzone Komutları &8==='
@@ -35,6 +37,7 @@ message.help.list: '&e/mtz list &7- Tüm ışınlanma bölgelerini listeler'
 message.help.pos1: '&e/mtz pos1 &7- Bölge seçimi için konum 1''i ayarlar'
 message.help.pos2: '&e/mtz pos2 &7- Bölge seçimi için konum 2''yi ayarlar'
 message.help.info: '&e/mtz info &7- Tüm bölge bilgilerini gösterir (Yönetici)'
+message.help.teleport: '&e/mtz teleport <bölge> &7- Bir bölgeye ışınlan (Yönetici)'
 message.help.reload: '&e/mtz reload &7- Eklenti yapılandırmasını ve dil dosyalarını yeniden yükler (Yönetici)'
 
 # Info Command Messages

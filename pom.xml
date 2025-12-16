@@ -6,7 +6,7 @@
 
     <groupId>com.l.rtp</groupId>
     <artifactId>l-rtpzone</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>L-rtpzone</name>

@@ -12,6 +12,12 @@ import org.bukkit.Bukkit;
 import java.util.HashMap;
 import java.util.Map;
 
+// Added imports for clickable messages
+import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+
 public class MTZCommand implements CommandExecutor {
     private Main plugin;
     
@@ -28,6 +34,13 @@ public class MTZCommand implements CommandExecutor {
         }
         
         Player player = (Player) sender;
+        
+        // Check if player has admin permission for all commands
+        if (!player.hasPermission("l-rtpzone.admin")) {
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', 
+                plugin.getLanguageManager().getMessage("message.command.no_permission")));
+            return true;
+        }
         
         // Handle reload command separately since it doesn't require player to be in a zone
         if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
@@ -59,6 +72,9 @@ public class MTZCommand implements CommandExecutor {
             case "info":
                 handleInfo(player);
                 break;
+            case "teleport":
+                handleTeleport(player, args);
+                break;
             default:
                 sendHelp(player);
                 break;
@@ -82,6 +98,8 @@ public class MTZCommand implements CommandExecutor {
             plugin.getLanguageManager().getMessage("message.help.pos2")));
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', 
             plugin.getLanguageManager().getMessage("message.help.info")));
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', 
+            plugin.getLanguageManager().getMessage("message.help.teleport")));
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', 
             plugin.getLanguageManager().getMessage("message.help.reload")));
     }
@@ -188,13 +206,16 @@ public class MTZCommand implements CommandExecutor {
         }
         
         for (Zone zone : zones) {
-            Map<String, String> placeholders = new HashMap<>();
-            placeholders.put("name", zone.getName());
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', 
-                plugin.getLanguageManager().getMessage("message.info.zone", placeholders)));
+            // Create clickable zone name
+            TextComponent zoneComponent = new TextComponent(ChatColor.translateAlternateColorCodes('&', 
+                plugin.getLanguageManager().getMessage("message.info.zone").replace("{name}", zone.getName())));
+            zoneComponent.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/mtz teleport " + zone.getName()));
+            zoneComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, 
+                new ComponentBuilder("Click to teleport to this zone").create()));
+            player.spigot().sendMessage(zoneComponent);
             
             Location pos1 = zone.getPos1();
-            placeholders.clear();
+            Map<String, String> placeholders = new HashMap<>();
             placeholders.put("x", String.valueOf(pos1.getBlockX()));
             placeholders.put("y", String.valueOf(pos1.getBlockY()));
             placeholders.put("z", String.valueOf(pos1.getBlockZ()));
@@ -234,6 +255,35 @@ public class MTZCommand implements CommandExecutor {
         }
     }
     
+    private void handleTeleport(Player player, String[] args) {
+        if (args.length < 2) {
+            player.sendMessage(ChatColor.RED + "Usage: /mtz teleport <zone_name>");
+            return;
+        }
+        
+        String zoneName = args[1];
+        Zone zone = plugin.getZoneManager().getZone(zoneName);
+        
+        if (zone == null) {
+            player.sendMessage(ChatColor.RED + "Zone '" + zoneName + "' not found!");
+            return;
+        }
+        
+        // Teleport player to the center of the zone
+        Location center = zone.getCenter();
+        // Make sure the location is safe
+        center = center.clone();
+        center.setY(center.getWorld().getHighestBlockYAt(center) + 1);
+        
+        player.teleport(center);
+        
+        // Send localized message
+        Map<String, String> placeholders = new HashMap<>();
+        placeholders.put("name", zoneName);
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', 
+            plugin.getLanguageManager().getMessage("message.teleport.to_zone", placeholders)));
+    }
+    
     private String formatLocation(Location loc) {
         if (loc == null) return "Unknown";
         return String.format("World: %s, X: %.2f, Y: %.2f, Z: %.2f", 
@@ -251,12 +301,6 @@ public class MTZCommand implements CommandExecutor {
     }
     
     private void handleReload(CommandSender sender) {
-        // Check permission
-        if (!sender.hasPermission("l-rtpzone.admin")) {
-            sender.sendMessage(ChatColor.RED + "You don't have permission to use this command!");
-            return;
-        }
-        
         try {
             // Reload the config
             plugin.reloadConfig();

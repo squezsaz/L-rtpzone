@@ -8,5 +8,5 @@ softdepend: [PlaceholderAPI]
 commands:
   mtz:
     description: Manage mass teleportation zones
-    usage: /mtz [create|remove|list|reload]
+    usage: /mtz [create|remove|list|reload|teleport]
     permission: l-rtpzone.admin
